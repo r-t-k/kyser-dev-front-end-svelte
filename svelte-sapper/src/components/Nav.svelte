@@ -4,57 +4,38 @@
 
 <style>
 	nav {
-		border-bottom: 1px solid rgba(255,62,0,0.1);
-		font-weight: 300;
-		padding: 0 1em;
+		width: 100%;
 	}
-
-	ul {
-		margin: 0;
-		padding: 0;
-	}
-
-	/* clearfix */
-	ul::after {
-		content: '';
-		display: block;
-		clear: both;
-	}
-
-	li {
-		display: block;
-		float: left;
-	}
-
-	.selected {
-		position: relative;
-		display: inline-block;
-	}
-
-	.selected::after {
-		position: absolute;
-		content: '';
-		width: calc(100% - 1em);
-		height: 2px;
-		background-color: rgb(255,62,0);
-		display: block;
-		bottom: -1px;
-	}
-
-	a {
-		text-decoration: none;
-		padding: 1em 0.5em;
-		display: block;
+	.nav-inner {
+		width: 100%;
+		max-width: 1032px !important;
 	}
 </style>
-
-<nav>
-	<ul>
-		<li><a class:selected='{segment === undefined}' href='.'>home</a></li>
-		<li><a class:selected='{segment === "about"}' href='about'>about</a></li>
-
-		<!-- for the blog link, we're using rel=prefetch so that Sapper prefetches
-		     the blog data when we hover over the link or tap it on a touchscreen -->
-		<li><a rel=prefetch class:selected='{segment === "blog"}' href='blog'>blog</a></li>
-	</ul>
+<nav class="container flex justify-center content-center">
+	<div class="nav-inner flex items-center justify-between flex-wrap bg-purple-700 p-6">
+		<div class="flex items-center flex-shrink-0 text-white mr-6">
+			<span class="font-semibold text-xl tracking-tight">TOM KYSER</span>
+		</div>
+		<div class="block lg:hidden">
+			<button class="flex items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white">
+				<svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+					<title>Menu</title>
+					<path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
+				</svg>
+			</button>
+		</div>
+		<div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto ">
+			<div class="text-sm lg:flex-grow lg:flex justify-end">
+				<a class:selected='{segment === undefined}' href="." class="block mt-4 lg:inline-block lg:mt-0 text-gray-400 hover:text-white mr-4">
+					home
+				</a>
+				<a class:selected='{segment === undefined}' href="about" class="block mt-4 lg:inline-block lg:mt-0 text-gray-400  hover:text-white mr-4">
+					about
+				</a>
+				<a class:selected='{segment === undefined}' href="work" class="block mt-4 lg:inline-block lg:mt-0 text-gray-400  hover:text-white mr-4">
+					work
+				</a>
+			</div>
+		</div>
+	</div>
 </nav>

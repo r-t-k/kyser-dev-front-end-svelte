@@ -10,6 +10,15 @@ export async function getPosts() {
 			limit: "all"
 		})
 		.catch(err => {
+			console.error('api: ' + err);
+		});
+}
+export async function getSinglePost(postSlug) {
+	return await api.posts
+		.read({
+			slug: postSlug
+		})
+		.catch(err => {
 			console.error(err);
 		});
 }
